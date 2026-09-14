@@ -1,0 +1,966 @@
+- generic [ref=e2]:
+  - generic [ref=e5]:
+    - link "Thông tin thật - Giá trị thật" [ref=e7] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e9]:
+      - list [ref=e14]:
+        - listitem [ref=e15]:
+          - link [ref=e16] [cursor=pointer]:
+            - /url: /signin
+            - heading "Đăng nhập" [level=3] [ref=e19]
+        - listitem [ref=e20]:
+          - link [ref=e21] [cursor=pointer]:
+            - /url: /register
+            - heading "Đăng ký" [level=3] [ref=e24]
+        - listitem [ref=e25]:
+          - link [ref=e26] [cursor=pointer]:
+            - /url: /mua-ban-bat-dong-san-ha-noi
+            - heading "Mua bán" [level=3] [ref=e29]
+        - listitem [ref=e30]:
+          - link [ref=e31] [cursor=pointer]:
+            - /url: /cho-thue-bat-dong-san-ha-noi
+            - heading "Cho thuê" [level=3] [ref=e34]
+        - listitem [ref=e35]:
+          - link [ref=e36] [cursor=pointer]:
+            - /url: /soi-quy-hoach/ha-noi
+            - heading "Bản đồ quy hoạch" [level=3] [ref=e39]
+        - listitem [ref=e40]:
+          - link [ref=e41] [cursor=pointer]:
+            - /url: /kho-ban-do/quy-hoach/ha-noi
+            - heading "Kho bản đồ quy hoạch" [level=3] [ref=e44]
+        - listitem [ref=e45]:
+          - link [ref=e46] [cursor=pointer]:
+            - /url: /nha-dat-chinh-chu/mua-ban-bat-dong-san-ha-noi
+            - heading "Nguồn nhà đất chính chủ ký gửi" [level=3] [ref=e49]
+        - listitem [ref=e50]:
+          - link [ref=e51] [cursor=pointer]:
+            - /url: /ban-do-gia/ha-noi
+            - heading "Bản đồ giá nhà đất" [level=3] [ref=e54]
+        - listitem [ref=e55]:
+          - link [ref=e56] [cursor=pointer]:
+            - /url: /du-an/ha-noi
+            - heading "Dự án bất động sản" [level=3] [ref=e59]
+        - listitem [ref=e60]:
+          - link [ref=e61] [cursor=pointer]:
+            - /url: /bang-gia-dat/ha-noi
+            - heading "Bảng giá đất 2026" [level=3] [ref=e64]
+        - listitem [ref=e65]:
+          - link [ref=e66] [cursor=pointer]:
+            - /url: /moi-gioi/moi-gioi-nha-dat-bat-dong-san-tai-ha-noi
+            - heading "Danh sách môi giới" [level=3] [ref=e69]
+        - listitem [ref=e70]:
+          - link [ref=e71] [cursor=pointer]:
+            - /url: /huong-dan
+            - heading "Hướng dẫn check quy hoạch" [level=3] [ref=e74]
+        - listitem [ref=e75]:
+          - link [ref=e76] [cursor=pointer]:
+            - /url: /signin
+            - heading "Đăng tin & ký gửi nhà đất" [level=3] [ref=e79]
+        - listitem [ref=e80]:
+          - link [ref=e81] [cursor=pointer]:
+            - /url: /qr-so-do
+            - heading "Kiểm tra Sổ đỏ" [level=3] [ref=e84]
+        - listitem [ref=e85]:
+          - link [ref=e86] [cursor=pointer]:
+            - /url: /thanh-toan-vip-tin
+            - heading "Nạp tiền đăng tin VIP" [level=3] [ref=e89]
+        - listitem [ref=e90]:
+          - link [ref=e91] [cursor=pointer]:
+            - /url: /thanh-toan
+            - heading "Nâng VIP xem quy hoạch" [level=3] [ref=e94]
+      - link [ref=e96] [cursor=pointer]:
+        - /url: https://zalo.me/g/2ozf1i8ek0bj2d7ko51g
+    - generic [ref=e98]:
+      - link [ref=e99] [cursor=pointer]:
+        - /url: https://apps.apple.com/ng/app/guland-th%C3%B4ng-tin-quy-ho%E1%BA%A1ch-vn/id1597429748
+      - link [ref=e101] [cursor=pointer]:
+        - /url: https://play.google.com/store/apps/details?id=bds.guland.vietnam.com
+  - generic [ref=e105]:
+    - banner [ref=e106]:
+      - generic [ref=e107]:
+        - link "Guland Thông tin thật - Giá trị thật" [ref=e109] [cursor=pointer]:
+          - /url: /
+          - img "Guland" [ref=e110]
+          - generic [ref=e111]: Thông tin thật - Giá trị thật
+        - generic [ref=e112]:
+          - link "Mua bán" [ref=e114] [cursor=pointer]:
+            - /url: /mua-ban-bat-dong-san-ha-noi
+          - link "$ Check giá" [ref=e120] [cursor=pointer]:
+            - /url: /ban-do-gia/ha-noi
+            - generic [ref=e121]: $
+            - generic [ref=e122]: Check giá
+          - link "Danh mục" [ref=e124] [cursor=pointer]:
+            - /url: "#"
+    - generic [ref=e129]:
+      - link [ref=e130] [cursor=pointer]:
+        - /url: "#"
+      - tablist [ref=e132]:
+        - listitem [ref=e133]:
+          - tab "Khu vực" [ref=e134] [cursor=pointer]
+        - listitem [ref=e135]:
+          - tab "Địa điểm" [ref=e136] [cursor=pointer]
+        - listitem [ref=e137]:
+          - tab "Góc ranh" [ref=e138] [cursor=pointer]
+        - listitem [ref=e139]:
+          - tab "Tờ thửa" [ref=e140] [cursor=pointer]
+    - generic [ref=e141]:
+      - generic [ref=e143]:
+        - button [ref=e144] [cursor=pointer]
+        - generic [ref=e148]:
+          - slider [ref=e149]: "100"
+          - generic [ref=e150]: "100"
+        - button [ref=e151] [cursor=pointer]
+      - link [ref=e154] [cursor=pointer]:
+        - /url: "#"
+      - link [ref=e156] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e158]:
+        - link [ref=e159] [cursor=pointer]:
+          - /url: "#"
+          - text: Xóa ranh đã vẽ
+        - link [ref=e161] [cursor=pointer]:
+          - /url: "#"
+      - link [ref=e163] [cursor=pointer]:
+        - /url: "#Modal-ColorPalette"
+      - link [ref=e167] [cursor=pointer]:
+        - /url: "#"
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - generic:
+          - generic:
+            - img:
+              - generic [ref=e172] [cursor=pointer]
+          - generic:
+            - img:
+              - generic:
+                - generic [ref=e173] [cursor=pointer]
+                - generic [ref=e174] [cursor=pointer]
+                - generic [ref=e175] [cursor=pointer]
+                - generic [ref=e176] [cursor=pointer]
+                - generic [ref=e177] [cursor=pointer]
+                - generic [ref=e178] [cursor=pointer]
+                - generic [ref=e179] [cursor=pointer]
+                - generic [ref=e180] [cursor=pointer]
+                - generic [ref=e181] [cursor=pointer]
+                - generic [ref=e182] [cursor=pointer]
+                - generic [ref=e183] [cursor=pointer]
+                - generic [ref=e184] [cursor=pointer]
+                - generic [ref=e185] [cursor=pointer]
+                - generic [ref=e186] [cursor=pointer]
+                - generic [ref=e187] [cursor=pointer]
+                - generic [ref=e188] [cursor=pointer]
+                - generic [ref=e189] [cursor=pointer]
+                - generic [ref=e190] [cursor=pointer]
+                - generic [ref=e191] [cursor=pointer]
+                - generic [ref=e192] [cursor=pointer]
+                - generic [ref=e193] [cursor=pointer]
+                - generic [ref=e194] [cursor=pointer]
+                - generic [ref=e195] [cursor=pointer]
+                - generic [ref=e196] [cursor=pointer]
+                - generic [ref=e197] [cursor=pointer]
+                - generic [ref=e198] [cursor=pointer]
+                - generic [ref=e199] [cursor=pointer]
+                - generic [ref=e200] [cursor=pointer]
+                - generic [ref=e201] [cursor=pointer]
+                - generic [ref=e202] [cursor=pointer]
+                - generic [ref=e203] [cursor=pointer]
+                - generic [ref=e204] [cursor=pointer]
+                - generic [ref=e205] [cursor=pointer]
+                - generic [ref=e206] [cursor=pointer]
+                - generic [ref=e207] [cursor=pointer]
+                - generic [ref=e208] [cursor=pointer]
+                - generic [ref=e209] [cursor=pointer]
+                - generic [ref=e210] [cursor=pointer]
+                - generic [ref=e211] [cursor=pointer]
+                - generic [ref=e212] [cursor=pointer]
+                - generic [ref=e213] [cursor=pointer]
+                - generic [ref=e214] [cursor=pointer]
+                - generic [ref=e215] [cursor=pointer]
+                - generic [ref=e216] [cursor=pointer]
+                - generic [ref=e217] [cursor=pointer]
+                - generic [ref=e218] [cursor=pointer]
+                - generic [ref=e219] [cursor=pointer]
+                - generic [ref=e220] [cursor=pointer]
+                - generic [ref=e221] [cursor=pointer]
+                - generic [ref=e222] [cursor=pointer]
+                - generic [ref=e223] [cursor=pointer]
+                - generic [ref=e224] [cursor=pointer]
+                - generic [ref=e225] [cursor=pointer]
+                - generic [ref=e226] [cursor=pointer]
+                - generic [ref=e227] [cursor=pointer]
+                - generic [ref=e228] [cursor=pointer]
+                - generic [ref=e229] [cursor=pointer]
+                - generic [ref=e230] [cursor=pointer]
+                - generic [ref=e231] [cursor=pointer]
+                - generic [ref=e232] [cursor=pointer]
+                - generic [ref=e233] [cursor=pointer]
+                - generic [ref=e234] [cursor=pointer]
+                - generic [ref=e235] [cursor=pointer]
+                - generic [ref=e236] [cursor=pointer]
+                - generic [ref=e237] [cursor=pointer]
+                - generic [ref=e238] [cursor=pointer]
+                - generic [ref=e239] [cursor=pointer]
+          - generic:
+            - img [ref=e240] [cursor=pointer]
+            - generic [ref=e242] [cursor=pointer]:
+              - generic [ref=e244]:
+                - generic [ref=e245]: "1250"
+                - generic [ref=e246]: triệu/m²
+              - generic [ref=e247]:
+                - generic [ref=e248]: 150 tỷ •
+                - generic [ref=e249]: 120 m²
+            - generic [ref=e251] [cursor=pointer]:
+              - generic [ref=e253]:
+                - generic [ref=e254]: "588.89"
+                - generic [ref=e255]: triệu/m²
+              - generic [ref=e256]:
+                - generic [ref=e257]: 26.5 tỷ •
+                - generic [ref=e258]: 39 m²
+            - generic [ref=e260] [cursor=pointer]:
+              - generic [ref=e262]:
+                - generic [ref=e263]: "62.58"
+                - generic [ref=e264]: triệu/m²
+              - generic [ref=e265]:
+                - generic [ref=e266]: 5.82 tỷ •
+                - generic [ref=e267]: 93 m²
+            - generic [ref=e269] [cursor=pointer]:
+              - generic [ref=e271]:
+                - generic [ref=e272]: "270"
+                - generic [ref=e273]: triệu/m²
+              - generic [ref=e274]:
+                - generic [ref=e275]: 6.75 tỷ •
+                - generic [ref=e276]: 25 m²
+            - generic [ref=e278] [cursor=pointer]:
+              - generic [ref=e280]:
+                - generic [ref=e281]: "267.5"
+                - generic [ref=e282]: triệu/m²
+              - generic [ref=e283]:
+                - generic [ref=e284]: 5.35 tỷ •
+                - generic [ref=e285]: 20 m²
+            - generic [ref=e287] [cursor=pointer]:
+              - generic [ref=e289]:
+                - generic [ref=e290]: "246.15"
+                - generic [ref=e291]: triệu/m²
+              - generic [ref=e292]:
+                - generic [ref=e293]: 9.6 tỷ •
+                - generic [ref=e294]: 39 m²
+            - generic [ref=e296] [cursor=pointer]:
+              - generic [ref=e298]:
+                - generic [ref=e299]: "252"
+                - generic [ref=e300]: triệu/m²
+              - generic [ref=e301]:
+                - generic [ref=e302]: 12.6 tỷ •
+                - generic [ref=e303]: 47 m²
+            - generic [ref=e305] [cursor=pointer]:
+              - generic [ref=e307]:
+                - generic [ref=e308]: "279"
+                - generic [ref=e309]: triệu/m²
+              - generic [ref=e310]:
+                - generic [ref=e311]: 13.95 tỷ •
+                - generic [ref=e312]: 50 m²
+            - generic [ref=e314] [cursor=pointer]:
+              - generic [ref=e316]:
+                - generic [ref=e317]: "502.79"
+                - generic [ref=e318]: triệu/m²
+              - generic [ref=e319]:
+                - generic [ref=e320]: 45 tỷ •
+                - generic [ref=e321]: 89.5 m²
+            - generic [ref=e323] [cursor=pointer]:
+              - generic [ref=e325]:
+                - generic [ref=e326]: "500"
+                - generic [ref=e327]: triệu/m²
+              - generic [ref=e328]:
+                - generic [ref=e329]: 18.7 tỷ •
+                - generic [ref=e330]: 37.4 m²
+            - generic [ref=e332] [cursor=pointer]:
+              - generic [ref=e334]:
+                - generic [ref=e335]: "597.22"
+                - generic [ref=e336]: triệu/m²
+              - generic [ref=e337]:
+                - generic [ref=e338]: 21.5 tỷ •
+                - generic [ref=e339]: 36 m²
+            - generic [ref=e341] [cursor=pointer]:
+              - generic [ref=e343]:
+                - generic [ref=e344]: "270"
+                - generic [ref=e345]: triệu/m²
+              - generic [ref=e346]:
+                - generic [ref=e347]: 40.5 tỷ •
+                - generic [ref=e348]: 150 m²
+            - generic [ref=e350] [cursor=pointer]:
+              - generic [ref=e352]:
+                - generic [ref=e353]: "279"
+                - generic [ref=e354]: triệu/m²
+              - generic [ref=e355]:
+                - generic [ref=e356]: 13.95 tỷ •
+                - generic [ref=e357]: 50 m²
+            - generic [ref=e359] [cursor=pointer]:
+              - generic [ref=e361]:
+                - generic [ref=e362]: "240"
+                - generic [ref=e363]: triệu/m²
+              - generic [ref=e364]:
+                - generic [ref=e365]: 7.2 tỷ •
+                - generic [ref=e366]: 30 m²
+            - generic [ref=e368] [cursor=pointer]:
+              - generic [ref=e370]:
+                - generic [ref=e371]: "266.67"
+                - generic [ref=e372]: triệu/m²
+              - generic [ref=e373]:
+                - generic [ref=e374]: 9.6 tỷ •
+                - generic [ref=e375]: 36 m²
+            - generic [ref=e377] [cursor=pointer]:
+              - generic [ref=e379]:
+                - generic [ref=e380]: "255.56"
+                - generic [ref=e381]: triệu/m²
+              - generic [ref=e382]:
+                - generic [ref=e383]: 11.5 tỷ •
+                - generic [ref=e384]: 45 m²
+            - generic [ref=e386] [cursor=pointer]:
+              - generic [ref=e388]:
+                - generic [ref=e389]: "607.14"
+                - generic [ref=e390]: triệu/m²
+              - generic [ref=e391]:
+                - generic [ref=e392]: 85 tỷ •
+                - generic [ref=e393]: 140 m²
+            - generic [ref=e395] [cursor=pointer]:
+              - generic [ref=e397]:
+                - generic [ref=e398]: "239.6"
+                - generic [ref=e399]: triệu/m²
+              - generic [ref=e400]:
+                - generic [ref=e401]: 11.98 tỷ •
+                - generic [ref=e402]: 50 m²
+            - generic [ref=e404] [cursor=pointer]:
+              - generic [ref=e406]:
+                - generic [ref=e407]: "156"
+                - generic [ref=e408]: triệu/m²
+              - generic [ref=e409]:
+                - generic [ref=e410]: 3.9 tỷ •
+                - generic [ref=e411]: 25 m²
+            - generic [ref=e413] [cursor=pointer]:
+              - generic [ref=e415]:
+                - generic [ref=e416]: "156"
+                - generic [ref=e417]: triệu/m²
+              - generic [ref=e418]:
+                - generic [ref=e419]: 3.9 tỷ •
+                - generic [ref=e420]: 25 m²
+            - generic [ref=e422] [cursor=pointer]:
+              - generic [ref=e424]:
+                - generic [ref=e425]: "426.01"
+                - generic [ref=e426]: triệu/m²
+              - generic [ref=e427]:
+                - generic [ref=e428]: 19 tỷ •
+                - generic [ref=e429]: 44.6 m²
+            - generic [ref=e431] [cursor=pointer]:
+              - generic [ref=e433]:
+                - generic [ref=e434]: "394.59"
+                - generic [ref=e435]: triệu/m²
+              - generic [ref=e436]:
+                - generic [ref=e437]: 14.6 tỷ •
+                - generic [ref=e438]: 37 m²
+            - generic [ref=e440] [cursor=pointer]:
+              - generic [ref=e442]:
+                - generic [ref=e443]: "196.3"
+                - generic [ref=e444]: triệu/m²
+              - generic [ref=e445]:
+                - generic [ref=e446]: 10.6 tỷ •
+                - generic [ref=e447]: 54 m²
+            - generic [ref=e449] [cursor=pointer]:
+              - generic [ref=e451]:
+                - generic [ref=e452]: "357.69"
+                - generic [ref=e453]: triệu/m²
+              - generic [ref=e454]:
+                - generic [ref=e455]: 18.6 tỷ •
+                - generic [ref=e456]: 52 m²
+            - generic [ref=e458] [cursor=pointer]:
+              - generic [ref=e460]:
+                - generic [ref=e461]: "192.19"
+                - generic [ref=e462]: triệu/m²
+              - generic [ref=e463]:
+                - generic [ref=e464]: 6.15 tỷ •
+                - generic [ref=e465]: 32 m²
+            - generic [ref=e467] [cursor=pointer]:
+              - generic [ref=e469]:
+                - generic [ref=e470]: "247.92"
+                - generic [ref=e471]: triệu/m²
+              - generic [ref=e472]:
+                - generic [ref=e473]: 5.95 tỷ •
+                - generic [ref=e474]: 24 m²
+            - generic [ref=e476] [cursor=pointer]:
+              - generic [ref=e478]:
+                - generic [ref=e479]: "244.21"
+                - generic [ref=e480]: triệu/m²
+              - generic [ref=e481]:
+                - generic [ref=e482]: 9.28 tỷ •
+                - generic [ref=e483]: 38 m²
+            - generic [ref=e485] [cursor=pointer]:
+              - generic [ref=e487]:
+                - generic [ref=e488]: "293.33"
+                - generic [ref=e489]: triệu/m²
+              - generic [ref=e490]:
+                - generic [ref=e491]: 8.8 tỷ •
+                - generic [ref=e492]: 30 m²
+            - generic [ref=e494] [cursor=pointer]:
+              - generic [ref=e496]:
+                - generic [ref=e497]: "232.14"
+                - generic [ref=e498]: triệu/m²
+              - generic [ref=e499]:
+                - generic [ref=e500]: 6.5 tỷ •
+                - generic [ref=e501]: 28 m²
+            - generic [ref=e503] [cursor=pointer]:
+              - generic [ref=e505]:
+                - generic [ref=e506]: "414.06"
+                - generic [ref=e507]: triệu/m²
+              - generic [ref=e508]:
+                - generic [ref=e509]: 26.5 tỷ •
+                - generic [ref=e510]: 64 m²
+            - generic [ref=e512] [cursor=pointer]:
+              - generic [ref=e514]:
+                - generic [ref=e515]: "577.42"
+                - generic [ref=e516]: triệu/m²
+              - generic [ref=e517]:
+                - generic [ref=e518]: 17.9 tỷ •
+                - generic [ref=e519]: 31 m²
+            - generic [ref=e521] [cursor=pointer]:
+              - generic [ref=e523]:
+                - generic [ref=e524]: "268"
+                - generic [ref=e525]: triệu/m²
+              - generic [ref=e526]:
+                - generic [ref=e527]: 6.7 tỷ •
+                - generic [ref=e528]: 25 m²
+            - generic [ref=e530] [cursor=pointer]:
+              - generic [ref=e532]:
+                - generic [ref=e533]: "220.69"
+                - generic [ref=e534]: triệu/m²
+              - generic [ref=e535]:
+                - generic [ref=e536]: 12.8 tỷ •
+                - generic [ref=e537]: 58 m²
+            - generic [ref=e539] [cursor=pointer]:
+              - generic [ref=e541]:
+                - generic [ref=e542]: "200"
+                - generic [ref=e543]: triệu/m²
+              - generic [ref=e544]:
+                - generic [ref=e545]: 6.8 tỷ •
+                - generic [ref=e546]: 34 m²
+            - generic [ref=e548] [cursor=pointer]:
+              - generic [ref=e550]:
+                - generic [ref=e551]: "555.56"
+                - generic [ref=e552]: triệu/m²
+              - generic [ref=e553]:
+                - generic [ref=e554]: 35 tỷ •
+                - generic [ref=e555]: 63 m²
+            - generic [ref=e557] [cursor=pointer]:
+              - generic [ref=e559]:
+                - generic [ref=e560]: "308.89"
+                - generic [ref=e561]: triệu/m²
+              - generic [ref=e562]:
+                - generic [ref=e563]: 13.9 tỷ •
+                - generic [ref=e564]: 45 m²
+            - generic [ref=e566] [cursor=pointer]:
+              - generic [ref=e568]:
+                - generic [ref=e569]: "216.67"
+                - generic [ref=e570]: triệu/m²
+              - generic [ref=e571]:
+                - generic [ref=e572]: 6.5 tỷ •
+                - generic [ref=e573]: 30 m²
+            - generic [ref=e575] [cursor=pointer]:
+              - generic [ref=e577]:
+                - generic [ref=e578]: "483.72"
+                - generic [ref=e579]: triệu/m²
+              - generic [ref=e580]:
+                - generic [ref=e581]: 20.8 tỷ •
+                - generic [ref=e582]: 43 m²
+            - generic [ref=e584] [cursor=pointer]:
+              - generic [ref=e586]:
+                - generic [ref=e587]: "192.19"
+                - generic [ref=e588]: triệu/m²
+              - generic [ref=e589]:
+                - generic [ref=e590]: 6.15 tỷ •
+                - generic [ref=e591]: 32 m²
+            - generic [ref=e593] [cursor=pointer]:
+              - generic [ref=e595]:
+                - generic [ref=e596]: "308.49"
+                - generic [ref=e597]: triệu/m²
+              - generic [ref=e598]:
+                - generic [ref=e599]: 26.9 tỷ •
+                - generic [ref=e600]: 87.2 m²
+            - generic [ref=e602] [cursor=pointer]:
+              - generic [ref=e604]:
+                - generic [ref=e605]: "218.29"
+                - generic [ref=e606]: triệu/m²
+              - generic [ref=e607]:
+                - generic [ref=e608]: 8.95 tỷ •
+                - generic [ref=e609]: 41 m²
+            - generic [ref=e611] [cursor=pointer]:
+              - generic [ref=e613]:
+                - generic [ref=e614]: "156.79"
+                - generic [ref=e615]: triệu/m²
+              - generic [ref=e616]:
+                - generic [ref=e617]: 45 tỷ •
+                - generic [ref=e618]: 287 m²
+            - generic [ref=e620] [cursor=pointer]:
+              - generic [ref=e622]:
+                - generic [ref=e623]: "595.24"
+                - generic [ref=e624]: triệu/m²
+              - generic [ref=e625]:
+                - generic [ref=e626]: 25 tỷ •
+                - generic [ref=e627]: 42 m²
+            - generic [ref=e629] [cursor=pointer]:
+              - generic [ref=e631]:
+                - generic [ref=e632]: "210"
+                - generic [ref=e633]: triệu/m²
+              - generic [ref=e634]:
+                - generic [ref=e635]: 10.5 tỷ •
+                - generic [ref=e636]: 50 m²
+            - generic [ref=e638] [cursor=pointer]:
+              - generic [ref=e640]:
+                - generic [ref=e641]: "317.5"
+                - generic [ref=e642]: triệu/m²
+              - generic [ref=e643]:
+                - generic [ref=e644]: 6.35 tỷ •
+                - generic [ref=e645]: 20 m²
+            - generic [ref=e647] [cursor=pointer]:
+              - generic [ref=e649]:
+                - generic [ref=e650]: "317.5"
+                - generic [ref=e651]: triệu/m²
+              - generic [ref=e652]:
+                - generic [ref=e653]: 6.35 tỷ •
+                - generic [ref=e654]: 20 m²
+            - generic [ref=e656] [cursor=pointer]:
+              - generic [ref=e658]:
+                - generic [ref=e659]: "350.67"
+                - generic [ref=e660]: triệu/m²
+              - generic [ref=e661]:
+                - generic [ref=e662]: 29 tỷ •
+                - generic [ref=e663]: 82.7 m²
+            - generic [ref=e665] [cursor=pointer]:
+              - generic [ref=e667]:
+                - generic [ref=e668]: "268"
+                - generic [ref=e669]: triệu/m²
+              - generic [ref=e670]:
+                - generic [ref=e671]: 6.7 tỷ •
+                - generic [ref=e672]: 25 m²
+            - generic [ref=e674] [cursor=pointer]:
+              - generic [ref=e676]:
+                - generic [ref=e677]: "286.67"
+                - generic [ref=e678]: triệu/m²
+              - generic [ref=e679]:
+                - generic [ref=e680]: 8.6 tỷ •
+                - generic [ref=e681]: 30 m²
+            - generic [ref=e683] [cursor=pointer]:
+              - generic [ref=e685]:
+                - generic [ref=e686]: "192.19"
+                - generic [ref=e687]: triệu/m²
+              - generic [ref=e688]:
+                - generic [ref=e689]: 6.15 tỷ •
+                - generic [ref=e690]: 32 m²
+            - generic [ref=e692] [cursor=pointer]:
+              - generic [ref=e694]:
+                - generic [ref=e695]: "244.21"
+                - generic [ref=e696]: triệu/m²
+              - generic [ref=e697]:
+                - generic [ref=e698]: 9.28 tỷ •
+                - generic [ref=e699]: 38 m²
+            - generic [ref=e701] [cursor=pointer]:
+              - generic [ref=e703]:
+                - generic [ref=e704]: "245.71"
+                - generic [ref=e705]: triệu/m²
+              - generic [ref=e706]:
+                - generic [ref=e707]: 8.6 tỷ •
+                - generic [ref=e708]: 35 m²
+            - generic [ref=e710] [cursor=pointer]:
+              - generic [ref=e712]:
+                - generic [ref=e713]: "251.28"
+                - generic [ref=e714]: triệu/m²
+              - generic [ref=e715]:
+                - generic [ref=e716]: 9.8 tỷ •
+                - generic [ref=e717]: 39 m²
+            - generic [ref=e719] [cursor=pointer]:
+              - generic [ref=e721]:
+                - generic [ref=e722]: "209.62"
+                - generic [ref=e723]: triệu/m²
+              - generic [ref=e724]:
+                - generic [ref=e725]: 10.9 tỷ •
+                - generic [ref=e726]: 52 m²
+            - generic [ref=e728] [cursor=pointer]:
+              - generic [ref=e730]:
+                - generic [ref=e731]: "220.69"
+                - generic [ref=e732]: triệu/m²
+              - generic [ref=e733]:
+                - generic [ref=e734]: 12.8 tỷ •
+                - generic [ref=e735]: 58 m²
+            - generic [ref=e737] [cursor=pointer]:
+              - generic [ref=e739]:
+                - generic [ref=e740]: "284.62"
+                - generic [ref=e741]: triệu/m²
+              - generic [ref=e742]:
+                - generic [ref=e743]: 7.4 tỷ •
+                - generic [ref=e744]: 26 m²
+            - generic [ref=e746] [cursor=pointer]:
+              - generic [ref=e748]:
+                - generic [ref=e749]: "270"
+                - generic [ref=e750]: triệu/m²
+              - generic [ref=e751]:
+                - generic [ref=e752]: 10.8 tỷ •
+                - generic [ref=e753]: 40 m²
+            - generic [ref=e755] [cursor=pointer]:
+              - generic [ref=e757]:
+                - generic [ref=e758]: "233.33"
+                - generic [ref=e759]: triệu/m²
+              - generic [ref=e760]:
+                - generic [ref=e761]: 3.5 tỷ •
+                - generic [ref=e762]: 15 m²
+            - generic [ref=e764] [cursor=pointer]:
+              - generic [ref=e766]:
+                - generic [ref=e767]: "480.11"
+                - generic [ref=e768]: triệu/m²
+              - generic [ref=e769]:
+                - generic [ref=e770]: 35 tỷ •
+                - generic [ref=e771]: 72.9 m²
+            - generic [ref=e773] [cursor=pointer]:
+              - generic [ref=e775]:
+                - generic [ref=e776]: "368.06"
+                - generic [ref=e777]: triệu/m²
+              - generic [ref=e778]:
+                - generic [ref=e779]: 13.25 tỷ •
+                - generic [ref=e780]: 36 m²
+            - generic [ref=e782] [cursor=pointer]:
+              - generic [ref=e784]:
+                - generic [ref=e785]: "451.56"
+                - generic [ref=e786]: triệu/m²
+              - generic [ref=e787]:
+                - generic [ref=e788]: 28.9 tỷ •
+                - generic [ref=e789]: 64 m²
+            - generic [ref=e791] [cursor=pointer]:
+              - generic [ref=e793]:
+                - generic [ref=e794]: "234.15"
+                - generic [ref=e795]: triệu/m²
+              - generic [ref=e796]:
+                - generic [ref=e797]: 19.2 tỷ •
+                - generic [ref=e798]: 82 m²
+            - generic [ref=e800] [cursor=pointer]:
+              - generic [ref=e802]:
+                - generic [ref=e803]: "284.62"
+                - generic [ref=e804]: triệu/m²
+              - generic [ref=e805]:
+                - generic [ref=e806]: 7.4 tỷ •
+                - generic [ref=e807]: 26 m²
+            - generic [ref=e809] [cursor=pointer]:
+              - generic [ref=e811]:
+                - generic [ref=e812]: "188.89"
+                - generic [ref=e813]: triệu/m²
+              - generic [ref=e814]:
+                - generic [ref=e815]: 8.5 tỷ •
+                - generic [ref=e816]: 45 m²
+            - generic [ref=e818] [cursor=pointer]:
+              - generic [ref=e820]:
+                - generic [ref=e821]: "278.41"
+                - generic [ref=e822]: triệu/m²
+              - generic [ref=e823]:
+                - generic [ref=e824]: 24.5 tỷ •
+                - generic [ref=e825]: 88 m²
+            - generic [ref=e827] [cursor=pointer]:
+              - generic [ref=e829]:
+                - generic [ref=e830]: "246.75"
+                - generic [ref=e831]: triệu/m²
+              - generic [ref=e832]:
+                - generic [ref=e833]: 19 tỷ •
+                - generic [ref=e834]: 77 m²
+            - generic [ref=e836] [cursor=pointer]:
+              - generic [ref=e838]:
+                - generic [ref=e839]: "2175"
+                - generic [ref=e840]: triệu/m²
+              - generic [ref=e841]:
+                - generic [ref=e842]: 87 tỷ •
+                - generic [ref=e843]: 40 m²
+            - generic [ref=e845] [cursor=pointer]:
+              - generic [ref=e847]:
+                - generic [ref=e848]: "200"
+                - generic [ref=e849]: triệu/m²
+              - generic [ref=e850]:
+                - generic [ref=e851]: 8 tỷ •
+                - generic [ref=e852]: 40 m²
+            - generic [ref=e854] [cursor=pointer]:
+              - generic [ref=e856]:
+                - generic [ref=e857]: "196.3"
+                - generic [ref=e858]: triệu/m²
+              - generic [ref=e859]:
+                - generic [ref=e860]: 10.6 tỷ •
+                - generic [ref=e861]: 54 m²
+            - generic [ref=e863] [cursor=pointer]:
+              - generic [ref=e865]:
+                - generic [ref=e866]: "224.29"
+                - generic [ref=e867]: triệu/m²
+              - generic [ref=e868]:
+                - generic [ref=e869]: 6.28 tỷ •
+                - generic [ref=e870]: 18 m²
+            - generic [ref=e872] [cursor=pointer]:
+              - generic [ref=e874]:
+                - generic [ref=e875]: "189.58"
+                - generic [ref=e876]: triệu/m²
+              - generic [ref=e877]:
+                - generic [ref=e878]: 4.55 tỷ •
+                - generic [ref=e879]: 24 m²
+            - generic [ref=e881] [cursor=pointer]:
+              - generic [ref=e883]:
+                - generic [ref=e884]: "271.49"
+                - generic [ref=e885]: triệu/m²
+              - generic [ref=e886]:
+                - generic [ref=e887]: 12 tỷ •
+                - generic [ref=e888]: 44.2 m²
+            - generic [ref=e890] [cursor=pointer]:
+              - generic [ref=e892]:
+                - generic [ref=e893]: "266.67"
+                - generic [ref=e894]: triệu/m²
+              - generic [ref=e895]:
+                - generic [ref=e896]: 9.6 tỷ •
+                - generic [ref=e897]: 36 m²
+            - generic [ref=e899] [cursor=pointer]:
+              - generic [ref=e901]:
+                - generic [ref=e902]: "200"
+                - generic [ref=e903]: triệu/m²
+              - generic [ref=e904]:
+                - generic [ref=e905]: 6.8 tỷ •
+                - generic [ref=e906]: 34 m²
+            - generic [ref=e908] [cursor=pointer]:
+              - generic [ref=e910]:
+                - generic [ref=e911]: "262.71"
+                - generic [ref=e912]: triệu/m²
+              - generic [ref=e913]:
+                - generic [ref=e914]: 15.5 tỷ •
+                - generic [ref=e915]: 59 m²
+            - generic [ref=e917] [cursor=pointer]:
+              - generic [ref=e919]:
+                - generic [ref=e920]: "502.57"
+                - generic [ref=e921]: triệu/m²
+              - generic [ref=e922]:
+                - generic [ref=e923]: 29.3 tỷ •
+                - generic [ref=e924]: 58.3 m²
+            - generic [ref=e926] [cursor=pointer]:
+              - generic [ref=e928]:
+                - generic [ref=e929]: "581.52"
+                - generic [ref=e930]: triệu/m²
+              - generic [ref=e931]:
+                - generic [ref=e932]: 53.5 tỷ •
+                - generic [ref=e933]: 92 m²
+            - generic [ref=e935] [cursor=pointer]:
+              - generic [ref=e937]:
+                - generic [ref=e938]: "300"
+                - generic [ref=e939]: triệu/m²
+              - generic [ref=e940]:
+                - generic [ref=e941]: 9 tỷ •
+                - generic [ref=e942]: 30 m²
+            - generic [ref=e944] [cursor=pointer]:
+              - generic [ref=e946]:
+                - generic [ref=e947]: "466.67"
+                - generic [ref=e948]: triệu/m²
+              - generic [ref=e949]:
+                - generic [ref=e950]: 56 tỷ •
+                - generic [ref=e951]: 120 m²
+            - generic [ref=e953] [cursor=pointer]:
+              - generic [ref=e955]:
+                - generic [ref=e956]: "457.14"
+                - generic [ref=e957]: triệu/m²
+              - generic [ref=e958]:
+                - generic [ref=e959]: 16 tỷ •
+                - generic [ref=e960]: 35 m²
+            - generic [ref=e962] [cursor=pointer]:
+              - generic [ref=e964]:
+                - generic [ref=e965]: "228.57"
+                - generic [ref=e966]: triệu/m²
+              - generic [ref=e967]:
+                - generic [ref=e968]: 16 tỷ •
+                - generic [ref=e969]: 70 m²
+            - generic [ref=e971] [cursor=pointer]:
+              - generic [ref=e973]:
+                - generic [ref=e974]: "483.66"
+                - generic [ref=e975]: triệu/m²
+              - generic [ref=e976]:
+                - generic [ref=e977]: 29.6 tỷ •
+                - generic [ref=e978]: 61.2 m²
+            - generic [ref=e980] [cursor=pointer]:
+              - generic [ref=e982]:
+                - generic [ref=e983]: "206.67"
+                - generic [ref=e984]: triệu/m²
+              - generic [ref=e985]:
+                - generic [ref=e986]: 9.3 tỷ •
+                - generic [ref=e987]: 45 m²
+            - generic [ref=e989] [cursor=pointer]:
+              - generic [ref=e991]:
+                - generic [ref=e992]: "200"
+                - generic [ref=e993]: triệu/m²
+              - generic [ref=e994]:
+                - generic [ref=e995]: 7.6 tỷ •
+                - generic [ref=e996]: 38 m²
+            - generic [ref=e998] [cursor=pointer]:
+              - generic [ref=e1000]:
+                - generic [ref=e1001]: "357.69"
+                - generic [ref=e1002]: triệu/m²
+              - generic [ref=e1003]:
+                - generic [ref=e1004]: 18.6 tỷ •
+                - generic [ref=e1005]: 52 m²
+            - generic [ref=e1007] [cursor=pointer]:
+              - generic [ref=e1009]:
+                - generic [ref=e1010]: "255.56"
+                - generic [ref=e1011]: triệu/m²
+              - generic [ref=e1012]:
+                - generic [ref=e1013]: 9.2 tỷ •
+                - generic [ref=e1014]: 33 m²
+            - generic [ref=e1016] [cursor=pointer]:
+              - generic [ref=e1018]:
+                - generic [ref=e1019]: "241.94"
+                - generic [ref=e1020]: triệu/m²
+              - generic [ref=e1021]:
+                - generic [ref=e1022]: 15 tỷ •
+                - generic [ref=e1023]: 62 m²
+            - generic [ref=e1025] [cursor=pointer]:
+              - generic [ref=e1027]:
+                - generic [ref=e1028]: "310"
+                - generic [ref=e1029]: triệu/m²
+              - generic [ref=e1030]:
+                - generic [ref=e1031]: 9.3 tỷ •
+                - generic [ref=e1032]: 30 m²
+            - generic [ref=e1034] [cursor=pointer]:
+              - generic [ref=e1036]:
+                - generic [ref=e1037]: "600"
+                - generic [ref=e1038]: triệu/m²
+              - generic [ref=e1039]:
+                - generic [ref=e1040]: 27 tỷ •
+                - generic [ref=e1041]: 45 m²
+            - generic [ref=e1043] [cursor=pointer]:
+              - generic [ref=e1045]:
+                - generic [ref=e1046]: "227.59"
+                - generic [ref=e1047]: triệu/m²
+              - generic [ref=e1048]:
+                - generic [ref=e1049]: 6.6 tỷ •
+                - generic [ref=e1050]: 29 m²
+            - generic [ref=e1052] [cursor=pointer]:
+              - generic [ref=e1054]:
+                - generic [ref=e1055]: "253.69"
+                - generic [ref=e1056]: triệu/m²
+              - generic [ref=e1057]:
+                - generic [ref=e1058]: 5.15 tỷ •
+                - generic [ref=e1059]: 20.3 m²
+            - generic [ref=e1061] [cursor=pointer]:
+              - generic [ref=e1063]:
+                - generic [ref=e1064]: "391.1"
+                - generic [ref=e1065]: triệu/m²
+              - generic [ref=e1066]:
+                - generic [ref=e1067]: 10.99 tỷ •
+                - generic [ref=e1068]: 28.1 m²
+            - generic [ref=e1070] [cursor=pointer]:
+              - generic [ref=e1072]:
+                - generic [ref=e1073]: "247.92"
+                - generic [ref=e1074]: triệu/m²
+              - generic [ref=e1075]:
+                - generic [ref=e1076]: 5.95 tỷ •
+                - generic [ref=e1077]: 24 m²
+            - generic [ref=e1079] [cursor=pointer]:
+              - generic [ref=e1081]:
+                - generic [ref=e1082]: "373.33"
+                - generic [ref=e1083]: triệu/m²
+              - generic [ref=e1084]:
+                - generic [ref=e1085]: 16.8 tỷ •
+                - generic [ref=e1086]: 45 m²
+            - generic [ref=e1088] [cursor=pointer]:
+              - generic [ref=e1090]:
+                - generic [ref=e1091]: "254.29"
+                - generic [ref=e1092]: triệu/m²
+              - generic [ref=e1093]:
+                - generic [ref=e1094]: 8.9 tỷ •
+                - generic [ref=e1095]: 35 m²
+            - generic [ref=e1097] [cursor=pointer]:
+              - generic [ref=e1099]:
+                - generic [ref=e1100]: "450"
+                - generic [ref=e1101]: triệu/m²
+              - generic [ref=e1102]:
+                - generic [ref=e1103]: 31.5 tỷ •
+                - generic [ref=e1104]: 70 m²
+            - generic [ref=e1106] [cursor=pointer]:
+              - generic [ref=e1108]:
+                - generic [ref=e1109]: "321.43"
+                - generic [ref=e1110]: triệu/m²
+              - generic [ref=e1111]:
+                - generic [ref=e1112]: 9 tỷ •
+                - generic [ref=e1113]: 28 m²
+            - generic [ref=e1115] [cursor=pointer]:
+              - generic [ref=e1117]:
+                - generic [ref=e1118]: "248.15"
+                - generic [ref=e1119]: triệu/m²
+              - generic [ref=e1120]:
+                - generic [ref=e1121]: 6.7 tỷ •
+                - generic [ref=e1122]: 27 m²
+            - generic [ref=e1124] [cursor=pointer]:
+              - generic [ref=e1126]:
+                - generic [ref=e1127]: "196.25"
+                - generic [ref=e1128]: triệu/m²
+              - generic [ref=e1129]:
+                - generic [ref=e1130]: 7.85 tỷ •
+                - generic [ref=e1131]: 40 m²
+            - generic [ref=e1133] [cursor=pointer]:
+              - generic [ref=e1135]:
+                - generic [ref=e1136]: "261.11"
+                - generic [ref=e1137]: triệu/m²
+              - generic [ref=e1138]:
+                - generic [ref=e1139]: 4.7 tỷ •
+                - generic [ref=e1140]: 18 m²
+            - generic [ref=e1142] [cursor=pointer]:
+              - generic [ref=e1144]:
+                - generic [ref=e1145]: "300"
+                - generic [ref=e1146]: triệu/m²
+              - generic [ref=e1147]:
+                - generic [ref=e1148]: 9 tỷ •
+                - generic [ref=e1149]: 30 m²
+            - generic [ref=e1151] [cursor=pointer]:
+              - generic [ref=e1153]:
+                - generic [ref=e1154]: "345"
+                - generic [ref=e1155]: triệu/m²
+              - generic [ref=e1156]:
+                - generic [ref=e1157]: 13.8 tỷ •
+                - generic [ref=e1158]: 40 m²
+            - generic [ref=e1160] [cursor=pointer]:
+              - generic [ref=e1162]:
+                - generic [ref=e1163]: "192.68"
+                - generic [ref=e1164]: triệu/m²
+              - generic [ref=e1165]:
+                - generic [ref=e1166]: 7.9 tỷ •
+                - generic [ref=e1167]: 41 m²
+            - generic [ref=e1169] [cursor=pointer]:
+              - generic [ref=e1171]:
+                - generic [ref=e1172]: "280.49"
+                - generic [ref=e1173]: triệu/m²
+              - generic [ref=e1174]:
+                - generic [ref=e1175]: 11.5 tỷ •
+                - generic [ref=e1176]: 41 m²
+            - generic [ref=e1178] [cursor=pointer]:
+              - generic [ref=e1180]:
+                - generic [ref=e1181]: "242.31"
+                - generic [ref=e1182]: triệu/m²
+              - generic [ref=e1183]:
+                - generic [ref=e1184]: 6.3 tỷ •
+                - generic [ref=e1185]: 26 m²
+            - generic [ref=e1187] [cursor=pointer]:
+              - generic [ref=e1189]:
+                - generic [ref=e1190]: "196.67"
+                - generic [ref=e1191]: triệu/m²
+              - generic [ref=e1192]:
+                - generic [ref=e1193]: 5.9 tỷ •
+                - generic [ref=e1194]: 30 m²
+        - link "Leaflet" [ref=e1196] [cursor=pointer]:
+          - /url: https://leafletjs.com
+      - generic [ref=e1198]:
+        - paragraph [ref=e1199]: Không kết nối được máy chủ bản đồ. Vui lòng thử tải lại trang.
+        - button "Tải lại" [ref=e1200] [cursor=pointer]
+    - list [ref=e1202]:
+      - listitem [ref=e1203]:
+        - link "account-supervisor-circle-outline Tin đã đăng" [ref=e1204] [cursor=pointer]:
+          - /url: /signin
+          - img "account-supervisor-circle-outline" [ref=e1205]
+          - generic [ref=e1207]: Tin đã đăng
+      - listitem [ref=e1208]:
+        - generic [ref=e1209] [cursor=pointer]: Ẩn giá
+      - listitem [ref=e1213]:
+        - link "Lọc tin" [ref=e1215] [cursor=pointer]:
+          - /url: "#"
+      - listitem [ref=e1221]:
+        - link "Hướng dẫn" [ref=e1222] [cursor=pointer]:
+          - /url: /huong-dan
+  - text: ₫

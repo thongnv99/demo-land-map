@@ -1,0 +1,32 @@
+[
+ {
+  "gdb": "NenDiaHinh",
+  "layer": "NenDiaHinh_L",
+  "file": "data/gdb/NenDiaHinh__NenDiaHinh_L.geojson",
+  "geometry": "MultiLineString",
+  "features": 21889,
+  "dropped": 97,
+  "bbox": [
+   109.2273,
+   13.843552,
+   109.305896,
+   13.909688
+  ],
+  "constants": {
+   "maThongTinQH": "1205220021",
+   "maHoSoQH": "52QPK1000021",
+   "tenDoiTuong": null
+  },
+  "groups": {
+   "nha": 5921,
+   "duong": 4793,
+   "thuy-he": 4035,
+   "dia-vat": 3314,
+   "thuc-vat": 2143,
+   "khac": 1405,
+   "dien": 189,
+   "cao-do": 88,
+   "ranh-gioi": 1
+  }
+ }
+]

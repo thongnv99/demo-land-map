@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Soi quy hoạch Hà Nội – POC</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #1f2937; }
+  #map { position: absolute; inset: 0; }
+  .panel { position: absolute; z-index: 1000; background: #fff; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.18); }
+  #side { top: 12px; left: 12px; width: 300px; max-height: calc(100% - 24px); overflow: auto; padding: 12px; }
+  #side h1 { font-size: 16px; margin: 0 0 8px; }
+  #side h2 { font-size: 13px; margin: 14px 0 6px; text-transform: uppercase; color: #6b7280; letter-spacing: .03em; }
+  .search { display: flex; gap: 6px; }
+  .search input { flex: 1; min-width: 0; padding: 7px 9px; border: 1px solid #d1d5db; border-radius: 6px; }
+  .search button, .seg button { padding: 7px 10px; border: 1px solid #d1d5db; background: #f9fafb; border-radius: 6px; cursor: pointer; }
+  #results { margin-top: 6px; }
+  #results div { padding: 5px 6px; cursor: pointer; border-radius: 4px; font-size: 13px; }
+  #results div:hover { background: #eef2ff; }
+  .seg { display: flex; }
+  .seg button { flex: 1; border-radius: 0; }
+  .seg button:first-child { border-radius: 6px 0 0 6px; }
+  .seg button:last-child { border-radius: 0 6px 6px 0; border-left: 0; }
+  .seg button.on { background: #2563eb; color: #fff; border-color: #2563eb; }
+  label.layer { display: flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; }
+  .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; font-size: 12px; }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .sw { width: 16px; height: 12px; border: 1px solid rgba(0,0,0,.3); flex: none; }
+  #info { top: 12px; right: 12px; width: 310px; padding: 12px; display: none; }
+  #info h3 { margin: 0 0 8px; font-size: 15px; }
+  #info table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  #info td { padding: 3px 0; border-bottom: 1px solid #f3f4f6; }
+  #info td:last-child { text-align: right; font-weight: 600; }
+  .badge { display: inline-block; padding: 4px 8px; border-radius: 999px; font-weight: 600; font-size: 12px; margin: 8px 0; }
+  .badge.ok { background: #dcfce7; color: #166534; }
+  .badge.warn { background: #fee2e2; color: #991b1b; }
+  .muted { color: #6b7280; font-size: 12px; }
+  .close { float: right; border: 0; background: none; font-size: 18px; cursor: pointer; line-height: 1; }
+  @media (max-width: 700px) {
+    #side { width: auto; right: 12px; max-height: 45%; }
+    #info { top: auto; bottom: 12px; left: 12px; right: 12px; width: auto; max-height: 45%; overflow: auto; }
+  }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<div id="side" class="panel">
+  <h1>Soi quy hoạch Hà Nội <span class="muted">(POC)</span></h1>
+  <form class="search" id="searchForm">
+    <input id="q" placeholder="Địa chỉ, hoặc tờ/thửa: 12/345" autocomplete="off" />
+    <button>Tìm</button>
+  </form>
+  <div id="results"></div>
+
+  <h2>Bản đồ nền</h2>
+  <div class="seg" id="baseSeg">
+    <button data-base="osm" class="on">Thường</button>
+    <button data-base="sat">Vệ tinh</button>
+  </div>
+
+  <h2>Lớp dữ liệu</h2>
+  <div id="layerList"></div>
+
+  <h2>CSDL quy hoạch (GDB – TT16)</h2>
+  <div id="gdbList"><span class="muted">Đang đọc manifest…</span></div>
+
+  <h2>Chú thích</h2>
+  <div class="legend" id="legend"></div>
+  <p class="muted">Dữ liệu demo: © OpenStreetMap contributors. Thửa = footprint công trình OSM; quy hoạch = landuse OSM gán mã đất — <b>không phải dữ liệu pháp lý</b>.</p>
+</div>
+
+<div id="info" class="panel"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+<script>
+// ---- Cấu hình loại đất quy hoạch ----
+const LAND_TYPES = {
+  ODT:  { name: 'Đất ở đô thị',          color: '#f7b267' },
+  HH:   { name: 'Đất hỗn hợp',           color: '#e76f51' },
+  TMDV: { name: 'Thương mại dịch vụ',    color: '#d62828' },
+  GD:   { name: 'Giáo dục',              color: '#f4d35e' },
+  YT:   { name: 'Y tế',                  color: '#ff99c8' },
+  CX:   { name: 'Cây xanh, TDTT',        color: '#70c16b' },
+  MN:   { name: 'Mặt nước',              color: '#5fa8d3' },
+  TON:  { name: 'Tôn giáo, tín ngưỡng',  color: '#b388eb' },
+  CN:   { name: 'Công nghiệp',           color: '#9e9e9e' },
+  QP:   { name: 'Quốc phòng, an ninh',   color: '#6d4c41' },
+};
+// Lộ giới giả lập theo cấp đường (m, tổng bề rộng) khi OSM không có tag width
+const ROAD_ROW = { trunk: 40, primary: 30, secondary: 22, tertiary: 17 };
+
+const map = L.map('map', { preferCanvas: true, zoomControl: false }).setView([21.028, 105.834], 13);
+L.control.zoom({ position: 'bottomright' }).addTo(map);
+L.control.scale({ imperial: false, position: 'bottomleft' }).addTo(map);
+
+// ---- Nền ----
+const bases = {
+  osm: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 21, maxNativeZoom: 19, attribution: '© OpenStreetMap' }),
+  sat: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 21, maxNativeZoom: 19, attribution: 'Esri World Imagery' }),
+};
+let currentBase = bases.osm.addTo(map);
+document.getElementById('baseSeg').addEventListener('click', (e) => {
+  const key = e.target.dataset.base;
+  if (!key) return;
+  map.removeLayer(currentBase);
+  currentBase = bases[key].addTo(map);
+  document.querySelectorAll('#baseSeg button').forEach((b) => b.classList.toggle('on', b === e.target));
+});
+
+// Panes để kiểm soát thứ tự vẽ
+map.createPane('planning').style.zIndex = 410;
+map.createPane('roads').style.zIndex = 420;
+map.createPane('admin').style.zIndex = 425;
+map.createPane('parcels').style.zIndex = 430;
+
+// Kiểu nét cho địa giới hành chính (data/dia-gioi.geojson, convert từ shapefile VN2000)
+const ADMIN_STYLES = {
+  'quoc-gia': { name: 'Biên giới quốc gia', color: '#b91c1c', weight: 3.5, dashArray: '12 4 2 4' },
+  tinh:       { name: 'Địa giới tỉnh',      color: '#0f766e', weight: 2.5, dashArray: '10 4 2 4' },
+  huyen:      { name: 'Địa giới huyện',     color: '#0f766e', weight: 1.2, dashArray: '4 4' },
+  'duong-bo': { name: 'Đường bờ biển',      color: '#0369a1', weight: 1 },
+};
+
+const getJSON = (u) => fetch(u).then((r) => r.json());
+
+Promise.all([
+  getJSON('00190.geojson'),
+  getJSON('data/parcels.geojson'),
+  getJSON('data/planning.geojson'),
+  getJSON('data/roads.geojson'),
+  getJSON('data/dia-gioi.geojson'),
+]).then(([ward, parcels, planning, roads, diaGioi]) => init(ward, parcels, planning, roads, diaGioi));
+
+// ---- Lớp từ CSDL quy hoạch GDB (data/gdb/manifest.json, sinh bởi scripts/convert-gdb.py) ----
+// Nhóm theo cột "nhom" (chuẩn hoá từ phanLoai); layer không có nhóm sẽ hiển thị 1 lớp duy nhất
+const GDB_GROUPS = {
+  nha:         { name: 'Nhà, tường xây',          color: '#475569' },
+  duong:       { name: 'Đường, vỉa hè, cầu cống', color: '#ea580c' },
+  'thuy-he':   { name: 'Thuỷ hệ, rãnh, hố ga',    color: '#0284c7' },
+  'thuc-vat':  { name: 'Thực vật',                color: '#16a34a' },
+  'dia-vat':   { name: 'Địa vật',                 color: '#a16207' },
+  dien:        { name: 'Điện cao thế',            color: '#dc2626', dashArray: '6 3' },
+  'cao-do':    { name: 'Cao độ, mốc',             color: '#9333ea' },
+  'ranh-gioi': { name: 'Ranh giới khu',           color: '#111827', weight: 3, dashArray: '10 5' },
+  khac:        { name: 'Khác (chưa phân loại)',   color: '#94a3b8' },
+};
+const DEFAULT_GDB_STYLE = { name: 'Tất cả đối tượng', color: '#7c3aed' };
+
+map.createPane('gdb').style.zIndex = 415;
+const gdbRenderer = L.canvas({ pane: 'gdb', tolerance: 5 });
+
+async function loadGdbLayers() {
+  const box = document.getElementById('gdbList');
+  const manifest = await getJSON('data/gdb/manifest.json').catch(() => null);
+  if (!manifest || !manifest.length) { box.innerHTML = '<span class="muted">Không có layer nào có dữ liệu.</span>'; return; }
+  box.innerHTML = '';
+
+  for (const entry of manifest) {
+    const groups = Object.keys(entry.groups).length ? entry.groups : { '*': entry.features };
+    const head = document.createElement('div');
+    head.innerHTML = `<div style="margin-top:6px"><b>${entry.gdb} / ${entry.layer}</b> <span class="muted">${entry.features.toLocaleString('vi')} đối tượng</span></div>
+      <div class="muted">${Object.entries(entry.constants || {}).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join(' · ')}</div>
+      <button type="button" style="margin:4px 0;padding:4px 8px;border:1px solid #d1d5db;background:#f9fafb;border-radius:6px;cursor:pointer">Tới vùng dữ liệu</button>
+      <div class="status muted"></div>`;
+    box.appendChild(head);
+    const [minx, miny, maxx, maxy] = entry.bbox;
+    head.querySelector('button').onclick = () => map.fitBounds([[miny, minx], [maxy, maxx]]);
+    const status = head.querySelector('.status');
+
+    // Tải dữ liệu 1 lần, tạo mỗi nhóm 1 L.geoJSON để bật/tắt riêng
+    status.textContent = 'Đang tải dữ liệu…';
+    const data = await getJSON(entry.file);
+    status.textContent = '';
+    Object.entries(groups).sort((a, b) => b[1] - a[1]).forEach(([key, count]) => {
+      const style = GDB_GROUPS[key] || DEFAULT_GDB_STYLE;
+      const layer = L.geoJSON(data, {
+        renderer: gdbRenderer,
+        filter: key === '*' ? null : (f) => f.properties.nhom === key,
+        style: { color: style.color, weight: style.weight || 1.2, dashArray: style.dashArray, fillOpacity: 0.2 },
+        onEachFeature: (f, l) => l.bindPopup(() =>
+          '<table>' + Object.entries(f.properties).filter(([, v]) => v !== null && v !== '').map(([k, v]) => `<tr><td class="muted">${k}</td><td><b>${v}</b></td></tr>`).join('') + '</table>'),
+      }).addTo(map);
+
+      const row = document.createElement('label');
+      row.className = 'layer';
+      row.innerHTML = `<input type="checkbox" checked>
+        <svg width="22" height="10" style="flex:none"><line x1="0" y1="5" x2="22" y2="5" stroke="${style.color}" stroke-width="${style.weight || 2}" stroke-dasharray="${style.dashArray || ''}"/></svg>
+        ${style.name} <span class="muted">(${count.toLocaleString('vi')})</span>`;
+      row.querySelector('input').addEventListener('change', (e) => (e.target.checked ? map.addLayer(layer) : map.removeLayer(layer)));
+      head.appendChild(row);
+    });
+  }
+}
+
+function init(ward, parcels, planning, roads, diaGioi) {
+  // ---- Lớp địa giới hành chính (mỗi loại 1 lớp để bật/tắt riêng) ----
+  const adminLayer = (loai) => L.geoJSON(diaGioi, {
+    pane: 'admin',
+    filter: (f) => f.properties.loai === loai,
+    style: { ...ADMIN_STYLES[loai], fill: false },
+    interactive: false,
+  });
+
+  // ---- Lớp ranh giới phường ----
+  const wardLayer = L.geoJSON(ward, { style: { color: '#7c3aed', weight: 3, dashArray: '8 6', fill: false }, interactive: false });
+
+  // ---- Lớp QH sử dụng đất ----
+  // Vẽ vùng lớn trước để vùng nhỏ (trường, bệnh viện...) nằm trên
+  planning.features.sort((a, b) => turf.area(b) - turf.area(a));
+  const planningLayer = L.geoJSON(planning, {
+    pane: 'planning',
+    style: (f) => ({ color: LAND_TYPES[f.properties.code].color, weight: 1, fillColor: LAND_TYPES[f.properties.code].color, fillOpacity: 0.55 }),
+    interactive: false,
+  });
+
+  // ---- Lớp chỉ giới đường đỏ (buffer theo lộ giới) ----
+  // Gộp buffer từng đoạn đường thành 1 vùng để không bị chồng màu ở nút giao
+  const roadBuffers = [roads.features
+    .map((f) => turf.buffer(f, (f.properties.width > 0 ? f.properties.width : ROAD_ROW[f.properties.highway]) / 2, { units: 'meters', steps: 4 }))
+    .reduce((acc, b) => (acc ? turf.union(acc, b) : b), null)];
+  const redlineLayer = L.geoJSON(turf.featureCollection(roadBuffers), {
+    pane: 'roads',
+    style: { color: '#dc2626', weight: 1.5, fillColor: '#dc2626', fillOpacity: 0.25 },
+    interactive: false,
+  });
+
+  // ---- Lớp thửa đất ----
+  const parcelIndex = new Map();
+  const parcelLayer = L.geoJSON(parcels, {
+    pane: 'parcels',
+    style: { color: '#1e3a8a', weight: 1, fillColor: '#93c5fd', fillOpacity: 0.15 },
+    onEachFeature: (f, layer) => {
+      parcelIndex.set(f.properties.id, layer);
+      layer.on('click', () => selectParcel(f));
+      layer.bindTooltip(`Tờ ${f.properties.so_to} – Thửa ${f.properties.so_thua}`, { sticky: true });
+    },
+  });
+
+  const layers = [
+    { key: 'quoc-gia', name: 'Biên giới quốc gia', layer: adminLayer('quoc-gia'), on: true },
+    { key: 'tinh', name: 'Địa giới tỉnh', layer: adminLayer('tinh'), on: true },
+    { key: 'huyen', name: 'Địa giới huyện (zoom ≥ 9)', layer: adminLayer('huyen'), on: true, minZoom: 9 },
+    { key: 'duong-bo', name: 'Đường bờ biển', layer: adminLayer('duong-bo'), on: false },
+    { key: 'ward', name: 'Ranh giới phường Ô Chợ Dừa', layer: wardLayer, on: true },
+    { key: 'parcel', name: 'Ranh giới thửa đất (zoom ≥ 16)', layer: parcelLayer, on: true, minZoom: 16 },
+    { key: 'planning', name: 'QH sử dụng đất', layer: planningLayer, on: true },
+    { key: 'redline', name: 'Chỉ giới đường đỏ (lộ giới)', layer: redlineLayer, on: true },
+  ];
+
+  const list = document.getElementById('layerList');
+  layers.forEach((l) => {
+    const row = document.createElement('label');
+    row.className = 'layer';
+    row.innerHTML = `<input type="checkbox" ${l.on ? 'checked' : ''}> ${l.name}`;
+    row.querySelector('input').addEventListener('change', (e) => { l.on = e.target.checked; syncLayers(); });
+    list.appendChild(row);
+  });
+  function syncLayers() {
+    layers.forEach((l) => {
+      const visible = l.on && (!l.minZoom || map.getZoom() >= l.minZoom);
+      if (visible && !map.hasLayer(l.layer)) map.addLayer(l.layer);
+      if (!visible && map.hasLayer(l.layer)) map.removeLayer(l.layer);
+    });
+  }
+  map.on('zoomend', syncLayers);
+  syncLayers();
+
+  // ---- Chú thích ----
+  document.getElementById('legend').innerHTML =
+    Object.entries(LAND_TYPES).map(([code, t]) => `<span><i class="sw" style="background:${t.color}"></i>${code} – ${t.name}</span>`).join('') +
+    `<span><i class="sw" style="background:rgba(220,38,38,.35);border-color:#dc2626"></i>Lộ giới đường</span>` +
+    `<span><i class="sw" style="background:rgba(147,197,253,.3);border-color:#1e3a8a"></i>Thửa đất</span>` +
+    Object.values(ADMIN_STYLES).map((s) => `<span><svg width="22" height="10" style="flex:none"><line x1="0" y1="5" x2="22" y2="5" stroke="${s.color}" stroke-width="${Math.min(s.weight, 3)}" stroke-dasharray="${s.dashArray || ''}"/></svg>${s.name}</span>`).join('');
+
+  map.fitBounds(wardLayer.getBounds());
+  loadGdbLayers();
+
+  // ---- Phân tích thửa ----
+  let selected = null;
+  function selectParcel(f) {
+    if (selected) map.removeLayer(selected);
+    // Vẽ chung pane 'parcels': pane riêng sẽ tạo canvas phủ toàn bản đồ và chặn click vào thửa khác
+    selected = L.geoJSON(f, { pane: 'parcels', style: { color: '#facc15', weight: 4, fillOpacity: 0 }, interactive: false }).addTo(map);
+    renderInfo(f, analyze(f));
+  }
+
+  function overlapArea(parcel, zones) {
+    const pb = turf.bbox(parcel);
+    let merged = null;
+    for (const z of zones) {
+      const zb = z.bbox || (z.bbox = turf.bbox(z));
+      if (zb[0] > pb[2] || zb[2] < pb[0] || zb[1] > pb[3] || zb[3] < pb[1]) continue;
+      const part = turf.intersect(parcel, z);
+      if (part) merged = merged ? turf.union(merged, part) : part;
+    }
+    return merged ? turf.area(merged) : 0;
+  }
+
+  function analyze(parcel) {
+    const total = turf.area(parcel);
+    const byCode = {};
+    for (const code of Object.keys(LAND_TYPES)) {
+      const a = overlapArea(parcel, planning.features.filter((z) => z.properties.code === code));
+      if (a > 0.5) byCode[code] = a;
+    }
+    const road = overlapArea(parcel, roadBuffers);
+    return { total, byCode, road };
+  }
+
+  function renderInfo(f, r) {
+    const p = f.properties;
+    const pct = (a) => ((a / r.total) * 100).toFixed(1) + '%';
+    const hit = r.road > 0.5;
+    const rows = Object.entries(r.byCode)
+      .sort((a, b) => b[1] - a[1])
+      .map(([c, a]) => `<tr><td><i class="sw" style="display:inline-block;vertical-align:middle;background:${LAND_TYPES[c].color}"></i> ${c} – ${LAND_TYPES[c].name}</td><td>${a.toFixed(1)} m² (${pct(a)})</td></tr>`)
+      .join('') || '<tr><td colspan="2" class="muted">Ngoài các vùng QH sử dụng đất đã số hóa</td></tr>';
+    const el = document.getElementById('info');
+    el.style.display = 'block';
+    el.innerHTML = `
+      <button class="close" onclick="this.parentElement.style.display='none'">×</button>
+      <h3>Tờ ${p.so_to} – Thửa ${p.so_thua}</h3>
+      <table>
+        <tr><td>Mã thửa</td><td>${p.id}</td></tr>
+        <tr><td>Địa chỉ</td><td>${p.dia_chi || '—'}</td></tr>
+        <tr><td>Diện tích</td><td>${r.total.toFixed(1)} m²</td></tr>
+      </table>
+      <span class="badge ${hit ? 'warn' : 'ok'}">${hit ? `⚠ Ảnh hưởng lộ giới: ${r.road.toFixed(1)} m² (${pct(r.road)})` : '✓ Không vướng lộ giới'}</span>
+      <table>${rows}</table>
+      <p class="muted">Diện tích tính theo giao hình học (Turf.js) giữa ranh thửa và từng lớp quy hoạch.</p>`;
+  }
+
+  // ---- Tìm kiếm ----
+  const results = document.getElementById('results');
+  document.getElementById('searchForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const q = document.getElementById('q').value.trim();
+    results.innerHTML = '';
+    if (!q) return;
+
+    const m = q.match(/^(\d+)\s*[\/\-\s]\s*(\d+)$/) || q.match(/^OCD-\d+$/i);
+    if (m) {
+      const f = parcels.features.find((x) => m[2] ? x.properties.so_to == m[1] && x.properties.so_thua == m[2] : x.properties.id === q.toUpperCase());
+      if (!f) { results.innerHTML = '<span class="muted">Không tìm thấy thửa</span>'; return; }
+      return focusParcel(f);
+    }
+
+    results.innerHTML = '<span class="muted">Đang tìm…</span>';
+    const url = 'https://nominatim.openstreetmap.org/search?format=jsonv2&limit=6&countrycodes=vn&bounded=1&viewbox=105.28,21.39,106.02,20.56&q=' + encodeURIComponent(q);
+    const data = await getJSON(url).catch(() => []);
+    results.innerHTML = data.length ? '' : '<span class="muted">Không có kết quả</span>';
+    data.forEach((d) => {
+      const item = document.createElement('div');
+      item.textContent = d.display_name;
+      item.onclick = () => {
+        const pt = turf.point([+d.lon, +d.lat]);
+        const f = parcels.features.find((x) => turf.booleanPointInPolygon(pt, x));
+        if (f) return focusParcel(f);
+        map.setView([+d.lat, +d.lon], 18);
+      };
+      results.appendChild(item);
+    });
+  });
+
+  function focusParcel(f) {
+    map.fitBounds(L.geoJSON(f).getBounds(), { maxZoom: 19 });
+    selectParcel(f);
+  }
+}
+</script>
+</body>
+</html>
